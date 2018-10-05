@@ -11,14 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-//    return view('welcome');
-    echo "GET OK!";
-});
+Route::get('/', 'MiuController@miuGet');
 
-Route::post('/', function () {
-    echo "POST OK!";
-});
+Route::post('/', 'MiuController@miuPost');
 
 Route::get('info', function(){
 	phpinfo();
