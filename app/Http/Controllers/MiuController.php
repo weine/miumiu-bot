@@ -14,6 +14,8 @@ class MiuController extends Controller
 
     public function miuPost(Request $request)
     {
-        Log::error(var_export($request->all(), true));
+        $event = $request->all();
+
+        return var_export($event, true);
     }
 }
