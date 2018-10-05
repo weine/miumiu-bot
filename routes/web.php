@@ -12,9 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+//    return view('welcome');
+    echo "GET OK!";
+});
+
+Route::post('/', function () {
+    echo "POST OK!";
 });
 
 Route::get('info', function(){
 	phpinfo();
 });
+
+Route::get('test_bot_send', 'LineBotController@testBotSend');
