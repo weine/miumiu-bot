@@ -50,9 +50,9 @@ class MiuController extends Controller
         $this->botRequestHandle($events);
 
         switch ($this->message) {
-            case 'miu' :
-                $this->miuBotService->replyText($this->useInfo, $this->replyToken);
-                break;
+//            case 'miu' :
+//                $this->miuBotService->replyText($this->useInfo, $this->replyToken);
+//                break;
             case 'roll' :
                 $this->miuBotService->reply($this->rollService->numberRandom(), $this->replyToken);
                 break;
