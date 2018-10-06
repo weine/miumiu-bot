@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\MiuBotService;
+use App\Services\RollService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -14,10 +15,14 @@ class MiuController extends Controller
     protected $message;
 
     protected $miuBotService;
+    protected $rollService;
 
-    public function __construct(MiuBotService $miuBotService)
-    {
+    public function __construct(
+        MiuBotService $miuBotService,
+        RollService $rollService
+    ){
         $this->miuBotService = $miuBotService;
+        $this->rollService = $rollService;
     }
 
     private function botRequestHandle($data)
@@ -40,9 +45,14 @@ class MiuController extends Controller
     {
         $events = $request->all();
         Log::info(response()->json($events));
-
         $this->botRequestHandle($events);
 
-        $this->miuBotService->reply($this->message, $this->replyToken);
+        switch ($this->message) {
+            case 'roll' :
+                $this->miuBotService->reply($this->rollService->numberRandom(), $this->replyToken);
+                break;
+            default :
+                $this->miuBotService->reply($this->message, $this->replyToken);
+        }
     }
 }
