@@ -14,6 +14,6 @@ class MiuController extends Controller
 
     public function miuPost(Request $request)
     {
-        header('event_info : xxx');
+        Log::info($request->all());
     }
 }
