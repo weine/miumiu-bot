@@ -51,7 +51,7 @@ class MiuController extends Controller
 
         switch ($this->message) {
             case 'miu' :
-                $this->miuBotService->reply($this->useInfo, $this->replyToken);
+                $this->miuBotService->replyText($this->useInfo, $this->replyToken);
                 break;
             case 'roll' :
                 $this->miuBotService->reply($this->rollService->numberRandom(), $this->replyToken);

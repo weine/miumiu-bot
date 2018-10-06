@@ -39,4 +39,16 @@ class MiuBotService
         // Failed
         Log::info($response->getHTTPStatus() . ' ' . $response->getRawBody());
     }
+
+    public function replyText($replyMessage, $replyToken)
+    {
+        $response = $this->bot->replyText($replyToken, $replyMessage);
+        if($response->isSucceeded()) {
+            Log::info('Reply Success!');
+            return;
+        }
+
+        // Failed
+        Log::info($response->getHTTPStatus() . ' ' . $response->getRawBody());
+    }
 }
