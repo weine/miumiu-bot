@@ -17,7 +17,7 @@ class RollService
     public function numberRandom()
     {
         $roll = rand($this->min, $this->max);
-        $msg = 'Miu擲出的點數(1~100) : ' . $roll;
+        $msg = '【1~100】Miu擲出的點數為 : ' . $roll;
 
         return $msg;
     }
