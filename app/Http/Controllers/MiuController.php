@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Log;
 
 class MiuController extends Controller
 {
+    protected $useInfo = '哈囉~~我是MiuMiu \n 功能使用說明: \n 1.應聲蟲 \n 2.輸入roll可由1~100隨機取數'; //使用說明
+
     protected $eventType;
     protected $replyToken;
     protected $userId;
@@ -48,6 +50,9 @@ class MiuController extends Controller
         $this->botRequestHandle($events);
 
         switch ($this->message) {
+            case 'miu' :
+                $this->miuBotService->reply($this->useInfo, $this->replyToken);
+                break;
             case 'roll' :
                 $this->miuBotService->reply($this->rollService->numberRandom(), $this->replyToken);
                 break;
