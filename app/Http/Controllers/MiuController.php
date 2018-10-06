@@ -11,6 +11,8 @@ class MiuController extends Controller
 {
     protected $useInfo = '哈囉~~我是MiuMiu(cony big smile)'. PHP_EOL. '功能使用說明:' . PHP_EOL . '1.應聲蟲' . PHP_EOL . '2.輸入roll可由1~100隨機取數'; //使用說明
 
+    protected $keyWords = ['哥哥', '弟弟', '妹妹', '媽媽', '爸爸', '哈哈', '幹', '流星', 'Miu', 'miu', 'miu~'];
+
     protected $eventType;
     protected $replyToken;
     protected $userId;
@@ -48,6 +50,10 @@ class MiuController extends Controller
         $events = $request->all();
         Log::info(response()->json($events));
         $this->botRequestHandle($events);
+
+        if(in_array($this->message, $this->keyWords)) {
+            return;
+        }
 
         switch ($this->message) {
 //            case 'miu' :
