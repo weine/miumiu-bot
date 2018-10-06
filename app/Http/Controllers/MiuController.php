@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 
 class MiuController extends Controller
 {
-    protected $useInfo = '哈囉~~我是MiuMiu %0D%0A功能使用說明: %0D%0A1.應聲蟲 %0D%0A2.輸入roll可由1~100隨機取數'; //使用說明
+    protected $useInfo = '哈囉~~我是MiuMiu'. '\n'. '功能使用說明:' . '\n' . '1.應聲蟲' . '\n' . '2.輸入roll可由1~100隨機取數'; //使用說明
 
     protected $eventType;
     protected $replyToken;
