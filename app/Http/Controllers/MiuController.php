@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 
 class MiuController extends Controller
 {
-    protected $useInfo = '哈囉~~我是MiuMiu'. PHP_EOL. '功能使用說明:' . PHP_EOL . '1.應聲蟲' . PHP_EOL . '2.輸入roll可由1~100隨機取數'; //使用說明
+    protected $useInfo = '哈囉~~我是MiuMiu(cony big smile)'. PHP_EOL. '功能使用說明:' . PHP_EOL . '1.應聲蟲' . PHP_EOL . '2.輸入roll可由1~100隨機取數'; //使用說明
 
     protected $eventType;
     protected $replyToken;
